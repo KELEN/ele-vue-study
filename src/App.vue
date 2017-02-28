@@ -1,12 +1,11 @@
 <template>
   <div id="app">
-     <h3>{{ msg }}</h3>
-     <p>
-        <router-link to="/home">home</router-link>
-      </p>
       <transition>
         <router-view></router-view>
       </transition>
+      <ul>
+          <li><router-link to="/home">home</router-link></li>
+      </ul>
   </div>
 </template>
 

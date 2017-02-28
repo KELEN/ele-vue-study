@@ -1,11 +1,14 @@
 <template>
-    <h1>
-        Home 3
+    <div>
+        <hcarousel></hcarousel>
+        <hmenu></hmenu>
         <footer-banner></footer-banner>
-    </h1>
+    </div>
 </template>
 
 <script>
+    import Hmenu from '../components/home/Hmenu.vue'
+    import Hcarousel from '../components/home/Hcarousel.vue'
     import FooterBanner from '../components/footer/FooterBanner.vue'
     export default {
         data: function () {
@@ -14,7 +17,9 @@
             }
         },
         components: {
-            FooterBanner
+            Hcarousel,
+            FooterBanner,
+            Hmenu
         }
     }
 </script>

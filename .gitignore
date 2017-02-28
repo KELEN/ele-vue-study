@@ -2,6 +2,7 @@
 Thumbs.db
 ehthumbs.db
 .idea/
+npm-debug.*.*
 
 # Folder config file
 Desktop.ini
