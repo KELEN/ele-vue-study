@@ -1,7 +1,7 @@
 /**
  * Created by kelen on 2017/2/28.
  */
-import menu from '../../api/homeCarousel'
+import menu from '../../../api/homeCarousel'
 
 const state = {
     carousels: []

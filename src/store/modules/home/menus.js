@@ -1,7 +1,7 @@
 /**
  * Created by kelen on 2017/2/28.
  */
-import menu from '../../api/homeMenu'
+import menu from '../../../api/homeMenu'
 
 const state = {
     menus: []

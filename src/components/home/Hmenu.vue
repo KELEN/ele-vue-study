@@ -1,7 +1,7 @@
 <style>
     .home-menu {
         overflow: hidden;
-        padding: 0;
+        padding: 10px;
     }
     .home-menu-item {
         width: 20%;
@@ -11,8 +11,8 @@
         font-size: 12px;
     }
     .home-menu-item img {
-        max-width: 80%;
-        margin: 4px auto;
+        max-width: 60%;
+        margin: 8px auto;
     }
 </style>
 <template>

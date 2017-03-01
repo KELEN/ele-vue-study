@@ -6,14 +6,18 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
-import menus from './modules/menus'
-import carousel from './modules/carousel'
+import menus from './modules/home/menus'
+import carousel from './modules/home/carousel'
+import mustGet from './modules/home/mustGet'
+import kuwan from './modules/home/kuwan'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
         menus,
-        carousel
+        carousel,
+        mustGet,
+        kuwan
     },
 })

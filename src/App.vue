@@ -3,9 +3,9 @@
       <transition>
         <router-view></router-view>
       </transition>
-      <ul>
+     <!-- <ul>
           <li><router-link to="/home">home</router-link></li>
-      </ul>
+      </ul>-->
   </div>
 </template>
 

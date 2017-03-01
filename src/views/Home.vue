@@ -1,15 +1,22 @@
 <template>
-    <div>
+    <div class="home-container">
+        <hsearch-banner></hsearch-banner>
         <hcarousel></hcarousel>
         <hmenu></hmenu>
-        <footer-banner></footer-banner>
+        <!-- 必抢 -->
+        <hmust-get></hmust-get>
+        <hkuwan></hkuwan>
     </div>
 </template>
 
 <script>
-    import Hmenu from '../components/home/Hmenu.vue'
+    import HsearchBanner from '../components/home/HsearchBanner.vue'
     import Hcarousel from '../components/home/Hcarousel.vue'
+    import Hmenu from '../components/home/Hmenu.vue'
+    import HmustGet from '../components/home/HmustGet.vue'
+    import Hkuwan from '../components/home/Hkuwan.vue'
     import FooterBanner from '../components/footer/FooterBanner.vue'
+
     export default {
         data: function () {
             return  {
@@ -17,7 +24,10 @@
             }
         },
         components: {
+            HsearchBanner,
             Hcarousel,
+            HmustGet,
+            Hkuwan,
             FooterBanner,
             Hmenu
         }
