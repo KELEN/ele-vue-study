@@ -1,6 +1,6 @@
 # ele-vue
 
-> Vue全家桶, 高仿饿了么
+> Vue全家桶学习例子, 天猫首页
 
 ## Build Setup
 
