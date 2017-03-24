@@ -1,26 +1,48 @@
 <style>
-    .carousel { height: 200px; overflow: hidden; }
+    .carousel { height: 200px; overflow: hidden; position: relative;}
     .carousel-img img { max-width: 100%; width: 100%; }
 </style>
 <template>
-    <mt-swipe class="carousel" :auto="3000">
-      <mt-swipe-item class="carousel-img" v-for="item in carousel" :key="item.id">
-          <img  :src="item.img" alt="">
-      </mt-swipe-item>
-    </mt-swipe>
+    <swiper class="carousel" :options="swiperOption">
+        <swiper-slide class="carousel-img" v-for="ca in carousel" :key="ca.id">
+            <img :src="ca.img"/>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
 </template>
 <script>
     import { mapGetters } from 'vuex'
-    import { Swipe, SwipeItem } from 'mint-ui'
+    import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
     export default {
-        computed: mapGetters({
-            carousel: 'carousels'
-        }),
+        data() {
+           return {
+               swiperOption: {
+                 autoplay: 3500,
+                 setWrapperSize :true,
+                 pagination : '.swiper-pagination',
+                 paginationClickable :true,
+                 mousewheelControl : true,
+                 observeParents:true,
+               },
+               swiperSlides: [1, 2, 3, 4, 5]
+             }
+        },
         created () {
             this.$store.dispatch('getCarousel')
         },
-        component () {
-            Swipe, SwipeItem
+        computed: mapGetters({
+            carousel: 'carousels'
+        }),
+        mounted() {
+            /*setInterval(() => {
+                console.log('simulate async data')
+                let swiperSlides = this.swiperSlides
+                if (swiperSlides.length < 10) swiperSlides.push(swiperSlides.length + 1)
+              }, 3000)*/
+        },
+        components: {
+            swiper, swiperSlide
         }
     }
 </script>

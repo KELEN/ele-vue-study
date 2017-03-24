@@ -19,7 +19,7 @@
     <ul class="home-menu">
         <li class="home-menu-item" v-for="menu in menus" :key="menu.id">
             <div><img :src="menu.logo" alt=""></div>
-            <a class="grid-content bg-purple">{{ menu.title }}</a>
+            <router-link :to="menu.link" class="grid-content bg-purple">{{ menu.title }}</router-link>
         </li>
     </ul>
 </template>

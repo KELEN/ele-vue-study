@@ -54,7 +54,7 @@
         <div class="search-input">
             <span class="place-holder">搜索商品/店铺</span>
         </div>
-        <a class="login-btn">登录</a>
+        <router-link class="login-btn" to="/login">登录</router-link>
     </div>
 </template>
 <script>

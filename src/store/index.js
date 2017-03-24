@@ -11,9 +11,22 @@ import carousel from './modules/home/carousel'
 import mustGet from './modules/home/mustGet'
 import kuwan from './modules/home/kuwan'
 
+import getters from './getters'
+import actions from './actions'
+import mutations from './mutations'
+
+const state = {
+    userId: '123456',
+    userInfo: {}
+}
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+    state,
+    getters,
+    actions,
+    mutations,
     modules: {
         menus,
         carousel,
