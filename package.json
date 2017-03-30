@@ -11,6 +11,8 @@
   "dependencies": {
     "babel-plugin-component": "^0.9.0",
     "element-ui": "^1.2.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.2",
     "mint-ui": "^2.1.1",
     "vue": "^2.2.1",
     "vue-awesome-swiper": "^2.3.8",

@@ -1,4 +1,4 @@
-<style>
+<style lang="less" scope>
     .home-menu {
         overflow: hidden;
         padding: 10px;
@@ -9,6 +9,9 @@
         text-align: center;
         list-style: none;
         font-size: 12px;
+        a {
+            color: black;
+        }
     }
     .home-menu-item img {
         max-width: 60%;
