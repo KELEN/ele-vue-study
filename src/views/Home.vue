@@ -30,6 +30,12 @@
             Hkuwan,
             FooterBanner,
             Hmenu
+        },
+        mounted: function () {
+            setTimeout(function() {
+                document.querySelector(".loading").style.opacity = 0;
+                document.querySelector(".loading").style.display = "none";
+            }, 2000)
         }
     }
 </script>

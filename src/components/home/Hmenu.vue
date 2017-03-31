@@ -9,9 +9,9 @@
         text-align: center;
         list-style: none;
         font-size: 12px;
-        a {
-            color: black;
-        }
+    a {
+        color: black;
+    }
     }
     .home-menu-item img {
         max-width: 60%;

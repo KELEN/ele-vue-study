@@ -31,18 +31,13 @@
         created () {
             this.$store.dispatch('getCarousel')
         },
+        components: {
+            swiper, swiperSlide
+        },
         computed: mapGetters({
             carousel: 'carousels'
         }),
         mounted() {
-            /*setInterval(() => {
-                console.log('simulate async data')
-                let swiperSlides = this.swiperSlides
-                if (swiperSlides.length < 10) swiperSlides.push(swiperSlides.length + 1)
-              }, 3000)*/
-        },
-        components: {
-            swiper, swiperSlide
         }
     }
 </script>

@@ -44,33 +44,27 @@
     }
 </style>
 <template>
-  <div id="app">
-      <transition>
-        <router-view></router-view>
-      </transition>
-     <!--<ul>
-          <li><router-link to="/jhs">home</router-link></li>
-     </ul>-->
-      <div class="loading">
-         <div class="logo-loading"></div>
-      </div>
-  </div>
+    <div id="app">
+        <transition>
+            <router-view></router-view>
+        </transition>
+        <!--<ul>
+             <li><router-link to="/jhs">home</router-link></li>
+        </ul>-->
+        <div class="loading">
+            <div class="logo-loading"></div>
+        </div>
+    </div>
 </template>
 
 <script>
-export default {
-      name: 'app',
-      data () {
-        return {
-          msg: 'Welcome to Your Vue.js App'
+    export default {
+        name: 'app',
+        data () {
+            return {
+                msg: 'Welcome to Your Vue.js App'
+            }
         }
-      },
-      mounted: function () {
-          setTimeout(function() {
-              document.querySelector(".loading").style.opacity = 0;
-              document.querySelector(".loading").style.display = "none";
-          }, 2000)
-      }
-}
+    }
 </script>
 
