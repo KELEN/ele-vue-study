@@ -1,4 +1,4 @@
-<style>
+<style scoped>
     .search-banner {
         position: fixed;
         top: 0;
@@ -49,7 +49,7 @@
 </style>
 <template>
     <div class="search-banner">
-        <hleft-menu :open="openDrawer"></hleft-menu>
+        <hleft-menu :open="openDrawer" v-on:closeDrawer="closeDrawer"></hleft-menu>
         <a class="category-btn" v-on:click="openCategory()">更多分类</a>
         <div class="search-input">
             <span class="place-holder">搜索商品/店铺</span>
@@ -76,17 +76,17 @@
                 } else {
                     document.querySelector(".search-banner").style.background = "-webkit-linear-gradient(top,rgba(0,0,0,.7),rgba(0,0,0,0))";
                 }
+            },
+            openCategory () {
+                this.openDrawer = true;
+            },
+            closeDrawer() {
+                this.openDrawer = false;
             }
         },
         components: {
             HleftMenu
         },
-        mounted() {},
-        methods: {
-            openCategory () {
-                this.openDrawer = true;
-                console.log(this.openDrawer)
-            }
-        }
+        mounted() {}
     }
 </script>
