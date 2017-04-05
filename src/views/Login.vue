@@ -98,6 +98,11 @@
     export default {
         methods: {
             login: function () {
+                this.$store.dispatch('setUserInfo', {
+                    userId: Math.random(),
+                    name: "kobe",
+                    age: 40
+                })
                 this.$router.push("/home")
             }
         }

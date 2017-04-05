@@ -54,15 +54,21 @@
         <div class="search-input">
             <span class="place-holder">搜索商品/店铺</span>
         </div>
-        <router-link class="login-btn" to="/login">登录</router-link>
+        <router-link class="login-btn" to="/login" v-if="!userInfo.userId">登录</router-link>
+        <span v-if="userInfo.userId" class="login-btn">Hello, {{ userInfo.name }}, <a v-on:click="loginOut()">退出</a></span>
     </div>
 </template>
 <script>
     import HleftMenu from './HleftMenu.vue'
+    import { mapGetters } from 'vuex'
+
     export default {
         created (){
             window.addEventListener("scroll", this.handlerScroll)
         },
+        computed: mapGetters({
+            userInfo: "userInfo"
+        }),
         data() {
             return {
                 openDrawer: false
@@ -71,7 +77,6 @@
         methods: {
             handlerScroll () {
                 if (window.scrollY > 60) {
-                    console.log("change");
                     document.querySelector(".search-banner").style.background = "red";
                 } else {
                     document.querySelector(".search-banner").style.background = "-webkit-linear-gradient(top,rgba(0,0,0,.7),rgba(0,0,0,0))";
@@ -82,6 +87,9 @@
             },
             closeDrawer() {
                 this.openDrawer = false;
+            },
+            loginOut() {
+                this.$store.dispatch("logout");
             }
         },
         components: {

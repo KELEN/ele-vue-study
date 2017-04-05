@@ -5,7 +5,9 @@
  *   日期:  2/28 0028.
  */
 import {
-    GET_USERINFO
+    GET_USERINFO,
+    SET_USERINFO,
+    LOGOUT
 } from './mutations-types'
 
 export default {
@@ -14,5 +16,11 @@ export default {
             name: "kelen",
             age: 26
         })
+    },
+    setUserInfo ({commit}, userInfo) {
+        commit(SET_USERINFO, userInfo)
+    },
+    logout ({commit}) {
+        commit(LOGOUT)
     }
 }

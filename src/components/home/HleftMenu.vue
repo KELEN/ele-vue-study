@@ -49,8 +49,31 @@
     .side-header {
         height: 40px;
         line-height: 40px;
-        padding-left: 8px;
+        padding:4px 0 4px 14px;
+        font-size: 14px;
         border: 1px solid #E1E1E1;
+    }
+    .category-list {
+        height: 100%;
+        .category-tab {
+            width: 24%;
+            float: left;
+            li {
+                line-height: 50px;
+                border-bottom: 1px solid #E1E1E1;
+                text-align: center;
+            }
+        }
+        .category-tab-content {
+            width: 76%;
+            float: left;
+        }
+    }
+    .category-tab-content {
+        display: none;
+    }
+    .active {
+        display: block;
     }
 </style>
 <template>
@@ -58,10 +81,17 @@
         <div v-show="isOpen" class="more-category-wrap">
             <aside id="sideMenu" class="side-menu">
                 <h3 class="side-header">全部分类</h3>
-                <div class="category-wrap">
-                    <ul>
-                        <li v-for="item in categories">
+                <div class="category-list">
+                    <ul class="category-tab">
+                        <li v-on:click="loadDetail(item.id, $event)" v-for="item in categories" :data-target="'tc' + item.id">
                             {{ item.name }}
+                        </li>
+                    </ul>
+                    <ul class="category-tab-content">
+                        <li v-for="item in categories" :id="'tc' + item.id">
+                            <ul>
+                                <li>2222</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -91,13 +121,26 @@
         mounted () {
             let that = this;
             $.get('/src/json/menu-category.json', function(data, err) {
-                that.categories = data.data;
+                that.categories = data;
+                var first = data[0].id;
+                $.get('/src/json/menu-detail-' + first + ".json", function(data) {
+                    $(".category-tab-content[data-id='" + first + "']").addClass("active");
+                })
             })
         },
         methods: {
             closeDrawer () {
                 this.$emit('closeDrawer');
                 this.isOpen = false;
+            },
+            loadDetail(id, event) {
+                $(".category-tab li").removeClass("active");
+                var clickTarget = $(event.srcElement)
+                clickTarget.addClass("active");
+                var target = clickTarget.attr("data-target");
+                $.get("/src/json/menu-detail-" + id + ".json", function (data, err) {
+                    $("#" + target).addClass("active");
+                })
             }
         }
     }
