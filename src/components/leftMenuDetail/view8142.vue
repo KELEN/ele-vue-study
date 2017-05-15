@@ -24,7 +24,7 @@
                 margin: 10px 0;
             }
             span {
-                display: inline-block;
+                display: block;
             }
         }
     }

@@ -13,26 +13,29 @@
         color: #9B9B9B;
         font-weight: 600;
     }
-    .category-list {
+    .category-detail {
         li {
-            width: 33%;
+            box-sizing: border-box;
+            width: 33.333%;
             float: left;
             margin: 5px 0;
+            height: 120px;
             text-align: center;
             img {
-                width: 70%;
+                max-width: 100%;
             }
-            span {
-                display: inline-block;
+            .good-name {
+                font-size: 14px;
             }
         }
+    }
+    .cate-container {
         &:after {
-            content: '';
+            content: "";
             display: block;
             clear: both;
             height: 0;
-            visibility: hidden;
-         }
+        }
     }
     .channel-btn {
         width: 90%;
@@ -43,13 +46,13 @@
     <div class="category-wrap">
         <div v-for="item in detail">
             <button class="channel-btn" v-if="item.type == 'channel'">{{ item.list[0].name }}</button>
-            <div v-else>
+            <div v-else class="cate-container">
                 <h2 class="category-title">{{ item.name }}</h2>
-                <ul class="category-list">
+                <ul class="category-detail">
                     <li v-for="i in item.list">
                         <a href="">
                             <img :src="i.pic" alt="">
-                            <span>{{ i.name }}</span>
+                            <span class="good-name">{{ i.name }}</span>
                         </a>
                     </li>
                 </ul>

@@ -1,34 +1,45 @@
 [{
   "name": "为您推荐",
-  "id": "8141"
+  "dataUrl": "menu-weinintuijian"
 }, {
   "name": "国际大牌",
-  "id": "8142"
+  "dataUrl": "menu-guojidapai"
 }, {
   "name": "天猫国际",
-  "id": "8143"
+  "dataUrl": "menu-tianmaoguoji"
 }, {
   "name": "女装",
-  "id": "8144"
+  "id": "jsonp6",
+  "dataUrl": "menu-nvzhuang"
 }, {
-  "name": "女鞋",
-  "id": "8145"
+	"name": "女鞋",
+	"id": "jsonp7",
+	"dataUrl": "menu-nvxie"
 }, {
-  "name": "男装",
-  "id": "8146"
+	"name": "男装",
+	"dataUrl": "menu-nanzhuang"
 }, {
-  "name": "男鞋",
-  "id": "8147"
+	"name": "男鞋",
+	"dataUrl": "menu-nanxie"
 }, {
   "name": "内衣",
-  "id": "8148"
+  "dataUrl": "menu-neiyi"
 }, {
   "name": "母婴",
-  "id": "8149"
-},{
+  "dataUrl": "menu-muyin"
+}, {
   "name": "手机",
-  "id": "8150"
-},{
+  "dataUrl": "menu-shouji"
+}, {
   "name": "数码",
-  "id": "8151"
+  "dataUrl": "menu-shuma"
+}, {
+  "name": "家电",
+  "dataUrl": "menu-jiadian"
+}, {
+  "name": "美妆",
+  "dataUrl": "menu-meizhuang"
+}, {
+  "name": "箱包",
+  "dataUrl": "menu-xiangbao"
 }]

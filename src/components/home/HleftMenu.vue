@@ -11,7 +11,10 @@
         z-index: @menuWrapZindex;
     }
     .side-menu {
-        position: relative;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
         width: 90%;
         height: 100%;
         background: #EEE;
@@ -54,13 +57,18 @@
         border: 1px solid #E1E1E1;
     }
     .category-list {
-        position: relative;
+        position: absolute;
         left: 0;
         top: 0;
+        bottom: 0;
+        width: 100%;
+        padding-top: 50px;
         box-sizing: border-box;
         .category-tab {
-            width: 24%;
+            width: 30%;
             float: left;
+            height: 100%;
+            overflow-y: auto;
             box-sizing: border-box;
             li {
                 line-height: 50px;
@@ -77,7 +85,9 @@
         display: block;
     }
     .category-tab-content {
-        left: 30%;
+        position: relative;
+        height: 100%;
+
         overflow: auto;
     }
 </style>
@@ -88,11 +98,13 @@
                 <h3 class="side-header">全部分类</h3>
                 <div class="category-list">
                     <ul class="category-tab">
-                        <li @click="loadDetail(item.id, $event)" v-for="item in categories" :data-target="'tc' + item.id">
+                        <li @click="loadDetail(item.id, item.dataUrl, $event)" v-for="item in categories" :data-target="'tc' + item.id">
                             {{ item.name }}
                         </li>
                     </ul>
-                    <component class="category-tab-content" :is="detailView" keep-alive></component>
+                    <keep-alive>
+                        <component class="category-tab-content" :is="detailView" :jsonpUrl="menuJsonpUrl"></component>
+                    </keep-alive>
                 </div>
             </aside>
             <div class="side-menu-overlay" v-on:click="closeDrawer()"></div>
@@ -103,9 +115,10 @@
     import view8141 from '../leftMenuDetail/view8141.vue'
     import view8142 from '../leftMenuDetail/view8142.vue'
     import view8143 from '../leftMenuDetail/view8143.vue'
+    import navCategoryItem from '../leftMenuDetail/navCategoryItem.vue'
     export default {
         components: {
-            view8141, view8142, view8143
+            view8141, view8142, view8143, navCategoryItem
         },
         props: {
             open: {
@@ -116,7 +129,8 @@
         data () {
             return {
                 categories: [],
-                detailView: "view8141"
+                detailView: "navCategoryItem",
+                menuJsonpUrl: "menu-weinintuijian"
             }
         },
         computed: {
@@ -140,14 +154,14 @@
                 this.$emit('closeDrawer');
                 this.isOpen = false;
             },
-            loadDetail(id, event) {
+            loadDetail(id, dataUrl, event) {
                 $(".category-tab>li").removeClass("active")
                 $(event.srcElement).addClass("active");
                 if (+id === 8142 || +id === 8141 || +id === 8143) {
-                    console.log("view" + id)
                     this.detailView = "view" + id;
                 } else {
-                    this.detailView = "view8142";
+                    this.detailView = "navCategoryItem";
+                    this.menuJsonpUrl = dataUrl
                 }
             }
         }

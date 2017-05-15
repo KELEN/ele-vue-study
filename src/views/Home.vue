@@ -43,7 +43,7 @@
         90.01%,100%{background-position-y:-207px}
     }
 </style>
-
+<!-- 聚划算 -->
 <template>
     <div class="home-container">
         <hsearch-banner></hsearch-banner>
